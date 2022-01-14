@@ -1,20 +1,22 @@
-package com.example.codechallenge_plentina.ui.fragment.animalsList
+package com.example.codechallenge_plentina.ui.activity.animalsList
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codechallenge_plentina.R
 import com.example.codechallenge_plentina.model.Animal
-import com.example.codechallenge_plentina.ui.fragment.animalDetail.AnimalDetailFragment
-import com.example.codechallenge_plentina.util.Util
+import com.example.codechallenge_plentina.ui.activity.animalDetail.AnimalDetailActivity
+import androidx.core.app.ActivityOptionsCompat
 
-class AnimalsListAdapter(private val fragmentActivity: FragmentActivity, private val mListAnimals: List<Animal>): RecyclerView.Adapter<AnimalsListAdapter.AnimalsViewHolder>() {
+
+class AnimalsListAdapter(private val activity: Activity, private val mListAnimals: List<Animal>): RecyclerView.Adapter<AnimalsListAdapter.AnimalsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_animal, parent, false)
@@ -30,13 +32,14 @@ class AnimalsListAdapter(private val fragmentActivity: FragmentActivity, private
             holder.tvType.text = obj.animalType
         }
         if(obj.imageLink?.isNotEmpty() == true){
-            Glide.with(fragmentActivity).load(obj.imageLink).placeholder(R.drawable.img_placeholder).into(holder.ivAnimal)
+            Glide.with(activity).load(obj.imageLink).placeholder(R.drawable.img_placeholder).into(holder.ivAnimal)
         }
 
         holder.itemView.setOnClickListener{
-            AnimalDetailFragment.obj = obj
-            val extras = FragmentNavigatorExtras(holder.ivAnimal to "viewDetail")
-            Util.performNavigation(fragmentActivity, extras, R.id.action_itemsListFragment_to_itemDetailFragment)
+            AnimalDetailActivity.obj = obj
+            val intent = Intent(activity, AnimalDetailActivity::class.java)
+            val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, holder.ivAnimal, "viewDetail")
+            activity.startActivity(intent, activityOptions.toBundle())
         }
     }
 

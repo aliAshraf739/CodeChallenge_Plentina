@@ -4,7 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Backup Projects/CodeChallenge/app/src/main/res/layout/activity_main.xml" value="0.14010416666666667" />
-        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/activity_animal_detail.xml" value="0.1576923076923077" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/activity_animals_list.xml" value="0.1576923076923077" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/fragment_animal_detail.xml" value="0.25" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/fragment_animals_list.xml" value="0.19" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/fragment_items_list.xml" value="0.25" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/item_list_animal.xml" value="0.18" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/layout_loading_screen.xml" value="0.22" />
+        <entry key="..\:/BitBucket/CodeChallenge_Plentina/app/src/main/res/layout/layout_toolbar.xml" value="0.2" />
       </map>
     </option>
   </component>

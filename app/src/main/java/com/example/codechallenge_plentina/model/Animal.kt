@@ -2,12 +2,6 @@ package com.example.codechallenge_plentina.model
 
 import com.google.gson.annotations.SerializedName
 
-data class GetAnimalsListResponse(
-
-	@field:SerializedName("GetAnimalsListResponse")
-	val getAnimalsListResponse: List<Animal?>? = null
-)
-
 data class Animal(
 
 	@field:SerializedName("weight_min")

@@ -1,37 +1,37 @@
 package com.builbee.app.util
 
-import android.app.ProgressDialog
+import android.app.Dialog
 import android.content.Context
-import android.util.Log
-import com.builbee.app.R
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.view.Window
+import android.widget.TextView
+import com.example.codechallenge_plentina.R
 
-class Loading {
 
-    companion object {
-        //        private lateinit var spotsDialog: AlertDialog
-        private lateinit var spotsDialog: ProgressDialog
+object Loading {
 
-        fun show(context: Context?) {
-            try {
-                spotsDialog = ProgressDialog(context, R.style.MyAlertDialogStyle)
-                spotsDialog.setMessage("Please Wait...")
-                spotsDialog.setCancelable(false)
-                spotsDialog.show()
-            } catch (e: Exception) {
-                Log.d("Loading", "show")
-            }
-        }
-
-        fun cancel() {
-            try {
-                if (spotsDialog.isShowing) {
-                    spotsDialog.dismiss()
-                    spotsDialog.cancel()
-                }
-            } catch (e: Exception) {
-                Log.d("Loading", "cancel")
-            }
+    var dialog: Dialog? = null
+    fun showLoading(context: Context?, cancelable: Boolean) { // function -- context(parent (reference))
+        dialog = Dialog(context!!, R.style.ProgressBarTheme)
+        dialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog!!.setContentView(R.layout.layout_loading_screen)
+        dialog!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog!!.setCancelable(cancelable)
+        val textView = dialog!!.findViewById<TextView>(R.id.text)
+        textView.text = "Please wait..."
+        try {
+            dialog!!.show()
+        } catch (e: Exception) {
         }
     }
 
+    fun hideLoading() {
+        try {
+            if (dialog != null) {
+                dialog!!.dismiss()
+            }
+        } catch (e: Exception) {
+        }
+    }
 }

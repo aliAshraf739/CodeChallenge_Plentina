@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.codechallenge_plentina">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeChallenge_Plentina">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.animalsList.AnimalsListActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.activity.animalDetail.AnimalDetailActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
